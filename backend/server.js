@@ -18,8 +18,8 @@ mongoose.connect(
   "mongodb+srv://tawhid:y3k2ItxCpxK5lizq@cluster.tdzonq3.mongodb.net/eventifyDB?retryWrites=true&w=majority&appName=cluster",
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
-.then(() => console.log("✅ MongoDB Connected"))
-.catch(err => console.log("❌ DB Error:", err));
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log("DB Error:", err));
 
 // routes
 app.use("/api/auth", authRoutes);
