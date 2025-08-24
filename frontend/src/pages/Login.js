@@ -16,14 +16,14 @@ function Login() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleLogin} className="p-6 bg-white shadow rounded">
-        <h1 className="text-2xl mb-4">Login</h1>
-        <input type="email" placeholder="Email" className="border p-2 mb-2 w-full"
+    <div className="h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300">
+      <form onSubmit={handleLogin} className="p-6 bg-white shadow-xl rounded-xl w-80">
+        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+        <input type="email" placeholder="Email" className="border p-2 mb-3 w-full rounded"
           onChange={(e) => setEmail(e.target.value)} />
-        <input type="password" placeholder="Password" className="border p-2 mb-2 w-full"
+        <input type="password" placeholder="Password" className="border p-2 mb-3 w-full rounded"
           onChange={(e) => setPassword(e.target.value)} />
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded">Login</button>
       </form>
     </div>
   );
