@@ -3,6 +3,8 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Events from "./pages/Events.jsx";
 import CreateEvent from "./pages/CreateEvent.jsx";
+import StudentDashboard from "./pages/StudentDashboard.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
 
 function App() {
   const token = localStorage.getItem('token');
@@ -22,8 +24,14 @@ function App() {
             <div className="flex gap-6">
               <Link to="/" className="text-2xl font-bold text-blue-600">🎉 Eventify</Link>
               <Link to="/events" className="text-blue-600 hover:text-blue-800 font-medium">Events</Link>
-              {userRole === 'admin' && (
-                <Link to="/create-event" className="text-green-600 hover:text-green-800 font-medium">+ Create Event</Link>
+              {token && userRole === 'student' && (
+                <Link to="/dashboard" className="text-purple-600 hover:text-purple-800 font-medium">My Dashboard</Link>
+              )}
+              {token && userRole === 'admin' && (
+                <>
+                  <Link to="/admin" className="text-red-600 hover:text-red-800 font-medium">Admin Panel</Link>
+                  <Link to="/create-event" className="text-green-600 hover:text-green-800 font-medium">+ Create Event</Link>
+                </>
               )}
             </div>
             
@@ -53,6 +61,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/events" element={<Events />} />
           <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/dashboard" element={<StudentDashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/" element={
             <div className="container mx-auto px-4 py-16 text-center">
               <h1 className="text-5xl font-bold text-gray-800 mb-6">🚀 Welcome to Eventify</h1>
