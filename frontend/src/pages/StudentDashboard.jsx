@@ -23,11 +23,11 @@ function StudentDashboard() {
 
   const fetchRegisteredEvents = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/events");
+      const res = await fetch("https://eventify-9enr.onrender.com/api/events");
       const allEvents = await res.json();
 
       // Get user ID from token
-      const userRes = await fetch("http://localhost:5000/api/auth/me", {
+      const userRes = await fetch("https://eventify-9enr.onrender.com/api/auth/me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,7 +55,7 @@ function StudentDashboard() {
 
   const unregisterFromEvent = async (eventId) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${eventId}/unregister`, {
+      const res = await fetch(`https://eventify-9enr.onrender.com/api/events/${eventId}/unregister`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ function StudentDashboard() {
   // NEW: certificate download with auth header
   const handleDownloadCertificate = async (eventId, title) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${eventId}/certificate`, {
+      const res = await fetch(`https://eventify-9enr.onrender.com/api/events/${eventId}/certificate`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
