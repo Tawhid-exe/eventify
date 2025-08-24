@@ -25,7 +25,7 @@ function AdminDashboard() {
 
   const fetchEvents = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/events");
+      const res = await fetch("https://eventify-9enr.onrender.com/api/events");
       const data = await res.json();
       setEvents(data);
       setLoading(false);
@@ -39,7 +39,7 @@ function AdminDashboard() {
     if (!confirm("Are you sure you want to delete this event?")) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${eventId}`, {
+      const res = await fetch(`https://eventify-9enr.onrender.com/api/events/${eventId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -59,7 +59,7 @@ function AdminDashboard() {
 
   const viewAttendees = async (eventId) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${eventId}`);
+      const res = await fetch(`https://eventify-9enr.onrender.com/api/events/${eventId}`);
       const data = await res.json();
       setSelectedEvent(data);
       setShowAttendees(true);
