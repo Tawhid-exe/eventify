@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+.env
+.env.local
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Vite Outputs
+dist/
+.vite/
+
+# Optional OS-related
+Thumbs.db
