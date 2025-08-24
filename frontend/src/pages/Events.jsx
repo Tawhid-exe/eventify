@@ -29,10 +29,10 @@ function Events() {
     }
 
     try {
-      const res = await fetch(http://localhost:5000/api/events/${eventId}/register, {
+      const res = await fetch(`http://localhost:5000/api/events/${eventId}/register`, {
         method: "POST",
         headers: {
-          "Authorization": Bearer ${token}
+          "Authorization": `Bearer ${token}`
         }
       });
       const data = await res.json();
