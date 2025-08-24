@@ -37,7 +37,7 @@ function CreateEvent() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/events", {
+      const res = await fetch("https://eventify-9enr.onrender.com/api/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
