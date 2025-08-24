@@ -20,6 +20,6 @@
     "nodemon": "^3.1.0"
   }
   "scripts": {
-  "dev": "node index.js"
+  "dev": "node server.js"
   }
 }
