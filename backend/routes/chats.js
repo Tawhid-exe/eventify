@@ -14,7 +14,7 @@ const openai = new OpenAI({
 router.post("/", async (req, res) => {
   try {
     const { message } = req.body;
-
+    
     if (!message) {
       return res.status(400).json({ error: "Message is required" });
     }
@@ -31,12 +31,12 @@ router.post("/", async (req, res) => {
         },
         { role: "user", content: message },
       ],
-      model: "gpt-3.5-turbo", // This model is fast and cheap
+      model: "gpt-3.5-turbo",
     });
 
     const botResponse = completion.choices[0].message.content;
     res.json({ reply: botResponse });
-
+    
   } catch (error) {
     console.error("Error with OpenAI API:", error);
     res.status(500).json({ error: "Failed to get response from AI" });
