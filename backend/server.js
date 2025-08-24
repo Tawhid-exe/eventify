@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.js";
 import dotenv from "dotenv";
+import eventRoutes from "./routes/events.js";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ mongoose.connect(
 
 // routes
 app.use("/api/auth", authRoutes);
+app.use("/api/events", eventRoutes);
 
 app.get("/api/health", (req, res) => 
   res.json({ status: "ok", message: "API running 🚀" })
