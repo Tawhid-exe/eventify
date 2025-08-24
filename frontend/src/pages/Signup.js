@@ -18,22 +18,23 @@ function Signup() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleSignup} className="p-6 bg-white shadow rounded">
-        <h1 className="text-2xl mb-4">Signup</h1>
-        <input type="text" placeholder="Name" className="border p-2 mb-2 w-full"
+    <div className="h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-green-300">
+      <form onSubmit={handleSignup} className="p-6 bg-white shadow-xl rounded-xl w-80">
+        <h1 className="text-2xl font-bold mb-4 text-center">Signup</h1>
+        <input type="text" placeholder="Name" className="border p-2 mb-3 w-full rounded"
           onChange={(e) => setName(e.target.value)} />
-        <input type="email" placeholder="Email" className="border p-2 mb-2 w-full"
+        <input type="email" placeholder="Email" className="border p-2 mb-3 w-full rounded"
           onChange={(e) => setEmail(e.target.value)} />
-        <input type="password" placeholder="Password" className="border p-2 mb-2 w-full"
+        <input type="password" placeholder="Password" className="border p-2 mb-3 w-full rounded"
           onChange={(e) => setPassword(e.target.value)} />
-        <select className="border p-2 mb-2 w-full" onChange={(e) => setRole(e.target.value)}>
+        <select className="border p-2 mb-3 w-full rounded" onChange={(e) => setRole(e.target.value)}>
           <option value="student">Student</option>
           <option value="admin">Admin</option>
         </select>
-        <button className="bg-green-500 text-white px-4 py-2 rounded">Signup</button>
+        <button className="bg-green-600 hover:bg-green-700 text-white w-full py-2 rounded">Signup</button>
       </form>
     </div>
+
   );
 }
 
