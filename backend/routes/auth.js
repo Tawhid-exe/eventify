@@ -49,20 +49,4 @@ router.get("/me", async (req, res) => {
   }
 });
 
-// Delete event (Admin only)
-router.delete("/:id", auth, async (req, res) => {
-  try {
-    if (req.user.role !== "admin") {
-      return res.status(403).json({ error: "Admin access required" });
-    }
-    
-    const event = await Event.findById(req.params.id);
-    if (!event) return res.status(404).json({ error: "Event not found" });
-    
-    await Event.findByIdAndDelete(req.params.id);
-    res.json({ message: "Event deleted successfully" });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
 export default router;
