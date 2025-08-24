@@ -124,4 +124,25 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
+// Update event (Admin only)
+router.put("/:id", auth, async (req, res) => {
+  try {
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ error: "Admin access required" });
+    }
+
+    const event = await Event.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    if (!event) return res.status(404).json({ error: "Event not found" });
+
+    res.json({ message: "Event updated successfully", event });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 export default router;
