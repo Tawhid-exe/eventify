@@ -2,11 +2,11 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.js";
-import dotenv from "dotenv";
 import eventRoutes from "./routes/events.js";
+import chatRoutes from "./routes/chats.js";  // ADD THIS LINE
+import dotenv from "dotenv";
 
 dotenv.config();
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -25,6 +25,7 @@ mongoose.connect(
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/chat", chatRoutes);  // ADD THIS LINE
 
 app.get("/api/health", (req, res) => 
   res.json({ status: "ok", message: "API running 🚀" })
