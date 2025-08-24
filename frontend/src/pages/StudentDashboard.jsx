@@ -29,7 +29,7 @@ function StudentDashboard() {
       // Get user ID from token
       const userRes = await fetch("http://localhost:5000/api/auth/me", {
         headers: {
-          Authorization: Bearer ${token},
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -55,10 +55,10 @@ function StudentDashboard() {
 
   const unregisterFromEvent = async (eventId) => {
     try {
-      const res = await fetch(http://localhost:5000/api/events/${eventId}/unregister, {
+      const res = await fetch(`http://localhost:5000/api/events/${eventId}/unregister`, {
         method: "POST",
         headers: {
-          Authorization: Bearer ${token},
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -78,8 +78,8 @@ function StudentDashboard() {
   // NEW: certificate download with auth header
   const handleDownloadCertificate = async (eventId, title) => {
     try {
-      const res = await fetch(http://localhost:5000/api/events/${eventId}/certificate, {
-        headers: { Authorization: Bearer ${token} },
+      const res = await fetch(`http://localhost:5000/api/events/${eventId}/certificate`, {
+        headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -89,7 +89,7 @@ function StudentDashboard() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = ${(title || "certificate").replace(/\s+/g, "_")}.pdf;
+      a.download = `${(title || "certificate").replace(/\s+/g, "_")}.pdf`;
       document.body.appendChild(a);
       a.click();
       a.remove();
